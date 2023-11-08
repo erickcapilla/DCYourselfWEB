@@ -15,6 +15,14 @@ const showForm = () => {
   const install = document.getElementById('install')
   const password = document.getElementById('input_password')
 
+  // Get the action to complete.
+  const mode = getParameterByName('mode');
+  // Get the one-time code from the query parameter.
+  const actionCode = getParameterByName('oobCode');
+  // (Optional) Get the continue URL from the query parameter if available.
+  const continueUrl = getParameterByName('continueUrl');
+  // (Optional) Get the language code if available.
+  //const lang = getParameterByName('lang') || 'en';
 
   //form_container.classList.remove('hide')
   //install.classList.add('hide')
@@ -29,7 +37,7 @@ const showForm = () => {
 
     if(regex.test(password.value)) {
       console.log(password.value);
-      isResetingPassword(password.value);
+      isResetingPassword(auth, actionCode, continueUrl, password.value);
       password.value = ""
     } else {
       const dialog_password = document.getElementById('dialog_password')
@@ -45,7 +53,7 @@ const showForm = () => {
   })
 }
 
-const isResetingPassword = (password) => {
+const isResetingPassword = (auth, actionCode, continueUrl, password) => {
   const config = {
     'apiKey': "AIzaSyCYD35v9GVFiYDiRjGFaUtWg4DOgBO-47s"
   };
@@ -53,7 +61,7 @@ const isResetingPassword = (password) => {
   const app = firebase.initializeApp(config);
   const auth = app.auth();
 
-  handleResetPassword(auth, actionCode, continueUrl, newPassword);
+  handleResetPassword(auth, actionCode, continueUrl, password);
 }
 
 function handleResetPassword(auth, actionCode, continueUrl) {
