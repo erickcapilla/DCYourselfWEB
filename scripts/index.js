@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   showForm()
   // Get the action to complete.
-   const mode = getParameterByName('mode');
+   //const mode = getParameterByName('mode');
    // Get the one-time code from the query parameter.
-   const actionCode = getParameterByName('oobCode');
+   //const actionCode = getParameterByName('oobCode');
    // (Optional) Get the continue URL from the query parameter if available.
-   const continueUrl = getParameterByName('continueUrl');
+   //const continueUrl = getParameterByName('continueUrl');
    // (Optional) Get the language code if available.
    //const lang = getParameterByName('lang') || 'en';
 }, false);
@@ -37,7 +37,7 @@ const showForm = () => {
 
     if(regex.test(password.value)) {
       console.log(password.value);
-      isResetingPassword(auth, actionCode, continueUrl, password.value);
+      isResetingPassword(actionCode, continueUrl, password.value);
       password.value = ""
     } else {
       const dialog_password = document.getElementById('dialog_password')
@@ -53,7 +53,7 @@ const showForm = () => {
   })
 }
 
-const isResetingPassword = (auth, actionCode, continueUrl, password) => {
+const isResetingPassword = (actionCode, continueUrl, password) => {
   const config = {
     'apiKey': "AIzaSyCYD35v9GVFiYDiRjGFaUtWg4DOgBO-47s"
   };
