@@ -33,7 +33,8 @@ main {
   align-items: center;
 }
 
-.install button {
+.install button,
+#btn_pass {
   background-color: transparent;
   width: 200px;
   height: 50px;
@@ -46,7 +47,8 @@ main {
 }
 
 .install button:hover,
-.reset-form form input[type="submit"]:hover {
+.reset-form form input[type="submit"]:hover,
+#btn_pass:hover {
   color: black;
   background-color: white;
 }

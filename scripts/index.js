@@ -25,9 +25,24 @@ const showForm = () => {
   const form = document.getElementById('form_reset')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
-    console.log(password.value);
-    isResetingPassword(password.value);
-    password.value = ""
+
+    const regex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,}).*$/;
+
+    if(regex.test(password.value)) {
+      console.log(password.value);
+      isResetingPassword(password.value);
+      password.value = ""
+    } else {
+      const dialog_password = document.getElementById('dialog_password')
+      const dialog_pass_text = document.getElementById('dialog_pass_text')
+      const btn_pass = document.getElementById('btn_pass')
+      dialog_password.showModal()
+      dialog_pass_text.innerText = 'Mínimo de 8 caracteres. Un número, una mayuscula y un caracter especial.'
+      btn_pass.addEventListener('click', () => {
+        dialog_password.close()
+      })
+    }
+    
   })
 }
 
