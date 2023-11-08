@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  showForm()
   // Get the action to complete.
    const mode = getParameterByName('mode');
    // Get the one-time code from the query parameter.
@@ -7,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
    const continueUrl = getParameterByName('continueUrl');
    // (Optional) Get the language code if available.
    //const lang = getParameterByName('lang') || 'en';
-
-  if (mode == "resetPassword") showForm()
-
 }, false);
 
 const showForm = () => {
@@ -18,14 +16,16 @@ const showForm = () => {
   const password = document.getElementById('input_password')
 
 
-  form_container.classList.remove('hide')
-  install.classList.add('hide')
+  //form_container.classList.remove('hide')
+  //install.classList.add('hide')
+  console.log("1");
 
   const form = document.getElementById('form_reset')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
+    console.log("2");
 
-    const regex = /^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,}).*$/;
+    const regex = new RegExp("^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])(?=.{8,}).*$");
 
     if(regex.test(password.value)) {
       console.log(password.value);
