@@ -5,16 +5,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>DCYourself</title>
+  <title id="title_page">DCYourself</title>
 </head>
 <body>
-  <main>
-    <div class="container">
-      <div class="img">
+      <header>
         <img src="img/Logo_PrincipalRecortado.png" alt="Logo principal de DCYourself">
-      </div>
-      <h2>Bienvenido a DCYourself</h2>
-    </div>
-  </main>
+        <!-- <h2 class="title-header" id="title_header">Bienvenido a DCYourself</h2> -->
+      </header>
+      <main>
+        <dialog id="dialog">
+          <p id="dialog_text">Mensaje</p>
+        </dialog>
+        <section class="reset-form " id="reset_form">
+          <form action="" name="reset" id="form_reset">
+            <input type="password" name="" id="input_password" placeholder="Nueva contraseña">
+            <input type="submit" value="Guardar" id="input_submit"">
+          </form>
+        </section>
+        <section class="install hide" id="install">
+          <h3>Instala la aplicación en tu dispositivo Android</h3>
+          <button id="bnt_apk">Descargar APK</button>
+        </section>
+      </main>
+
+
+  <script src="scripts/index.js"></script>
 </body>
 </html>

@@ -5,46 +5,94 @@
 }
 
 body {
-  background-color: #155959;
+  background-color: #002525;
   color: white;
 }
 
-main {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
 
-.container {
-  min-width: 100px;
-  max-width: 700px;
-  min-height: 300px;
-  max-height: 700px;
+header {
+  width: 100vw;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   border: 2px solid white;
   border-radius: 10px;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 
-.img {
-  border: 3px solid white;
-  margin-bottom: 15px;
+img {
+  width: 180px;
+}
+
+main {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.install button {
+  background-color: transparent;
+  width: 200px;
+  height: 50px;
+  display: block;
+  border: 2px solid white;
   border-radius: 5px;
-  background-color: #78DFDF;
-  padding: 5px;
+  margin: 20px auto 0;
+  font-weight: bold;
+  color: white;
 }
 
-.img img {
-  min-width: 150px;
-  max-width: 400px;
+.install button:hover,
+.reset-form form input[type="submit"]:hover {
+  color: black;
+  background-color: white;
 }
 
-h2 {
+h3 {
+  height: 100%;
+  width: 100%;
   text-align: center;
+}
+
+.reset-form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reset-form form input[type="password"] {
+  width: 250px;
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+
+.reset-form form input[type="submit"] {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+dialog {
+  margin: 80px auto 0;
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  outline: none;
 }
