@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* // Get the action to complete.
+  // Get the action to complete.
    const mode = getParameterByName('mode');
    // Get the one-time code from the query parameter.
    const actionCode = getParameterByName('oobCode');
@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
    const continueUrl = getParameterByName('continueUrl');
    // (Optional) Get the language code if available.
    //const lang = getParameterByName('lang') || 'en';
- */
 
   if (mode = "resetPassword") showForm()
 
