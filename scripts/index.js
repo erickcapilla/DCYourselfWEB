@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
    // (Optional) Get the language code if available.
    //const lang = getParameterByName('lang') || 'en';
 
-  if (mode = "resetPassword") showForm()
+  if (mode == "resetPassword") showForm()
 
 }, false);
 
