@@ -15,15 +15,6 @@ const showForm = () => {
   const install = document.getElementById('install')
   const password = document.getElementById('input_password')
 
-  // Get the action to complete.
-  const mode = getParameterByName('mode');
-  // Get the one-time code from the query parameter.
-  const actionCode = getParameterByName('oobCode');
-  // (Optional) Get the continue URL from the query parameter if available.
-  const continueUrl = getParameterByName('continueUrl');
-  // (Optional) Get the language code if available.
-  //const lang = getParameterByName('lang') || 'en';
-
   //form_container.classList.remove('hide')
   //install.classList.add('hide')
   console.log("1");
@@ -37,7 +28,7 @@ const showForm = () => {
 
     if(regex.test(password.value)) {
       console.log(password.value);
-      isResetingPassword(actionCode, continueUrl, password.value);
+      isResetingPassword(password.value);
       password.value = ""
     } else {
       const dialog_password = document.getElementById('dialog_password')
@@ -53,7 +44,9 @@ const showForm = () => {
   })
 }
 
-const isResetingPassword = (actionCode, continueUrl, password) => {
+const isResetingPassword = (password) => {
+  const actionCode = getParameterByName('oobCode');
+
   const config = {
     'apiKey': "AIzaSyCYD35v9GVFiYDiRjGFaUtWg4DOgBO-47s"
   };
@@ -61,17 +54,17 @@ const isResetingPassword = (actionCode, continueUrl, password) => {
   const app = firebase.initializeApp(config);
   const auth = app.auth();
 
-  handleResetPassword(auth, actionCode, continueUrl, password);
+  handleResetPassword(auth, actionCode, password);
 }
 
-function handleResetPassword(auth, actionCode, continueUrl) {
+function handleResetPassword(auth, actionCode, password) {
   // Verify the password reset code is valid.
   auth.verifyPasswordResetCode(actionCode).then((email) => {
     const accountEmail = email;
 
     // TODO: Show the reset screen with the user's email and ask the user for
     // the new password.
-    const newPassword = newPassword;
+    const newPassword = password;
 
     // Save the new password.
     auth.confirmPasswordReset(actionCode, newPassword).then((resp) => {
