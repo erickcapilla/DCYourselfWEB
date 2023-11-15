@@ -1,3 +1,10 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+//import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+//import { initializeApp } from "firebase/app";
+//import { getAuth } from "firebase/auth";
+import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
+
 document.addEventListener('DOMContentLoaded', () => {
   showForm()
   // Get the action to complete.
@@ -50,12 +57,31 @@ const isResetingPassword = (password) => {
   console.log(actionCode);
   //const actionCode = getParameterByName('oobCode');
 
-  const config = {
+  /*const config = {
     'apiKey': "AIzaSyCYD35v9GVFiYDiRjGFaUtWg4DOgBO-47s"
   };
 
-  const app = firebase.initializeApp(config);
-  const auth = app.auth();
+  const app = firebase.initializeApp(config);*/
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBpJu9iidGqD_aGX7ZOSTESM9PWRyjd73M",
+    authDomain: "dcyourself.firebaseapp.com",
+    projectId: "dcyourself",
+    storageBucket: "dcyourself.appspot.com",
+    messagingSenderId: "961273128661",
+    appId: "1:961273128661:web:fe98c98df591385a09a45c",
+    measurementId: "G-3W6H7V0SK2"
+  };
+
+  // Initialize Firebase
+  //const app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig)
+  //const analytics = getAnalytics(app);
+  const auth = getAuth(app);
 
   handleResetPassword(auth, actionCode, password);
 }
