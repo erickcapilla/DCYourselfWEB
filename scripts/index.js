@@ -45,7 +45,10 @@ const showForm = () => {
 }
 
 const isResetingPassword = (password) => {
-  const actionCode = getParameterByName('oobCode');
+  let params = new URLSearchParams(location.search);
+  const actionCode = params.get('oobCode');
+  console.log(actionCode);
+  //const actionCode = getParameterByName('oobCode');
 
   const config = {
     'apiKey': "AIzaSyCYD35v9GVFiYDiRjGFaUtWg4DOgBO-47s"
