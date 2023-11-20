@@ -32,7 +32,13 @@ main {
   align-items: center;
 }
 
-.install button,
+.install #bnt_apk {
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.install #bnt_apk,
 #btn_pass {
   background-color: transparent;
   width: 200px;
@@ -45,7 +51,7 @@ main {
   color: white;
 }
 
-.install button:hover,
+.install #bnt_apk:hover,
 .reset-form form input[type="submit"]:hover,
 #btn_pass:hover {
   color: black;
